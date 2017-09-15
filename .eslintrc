@@ -1,10 +1,12 @@
 {
-  "extends": "airbnb",
-  "plugins": [
-    "import"
-  ],
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
   "rules": {
-    "no-console":0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  	"comma-dangle": ["error", "always-multiline"]
   }
 }

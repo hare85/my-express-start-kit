@@ -1,4 +1,5 @@
-const nodemon = require('nodemon'); // eslint-disable-line import/no-extraneous-dependencies
+/* eslint-disable */
+const nodemon = require('nodemon');
 
 process.env.NODE_ENV = 'development';
 
