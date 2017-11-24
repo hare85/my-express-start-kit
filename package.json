@@ -9,7 +9,9 @@
     "babel-build": "babel src -d build",
     "build-and-run": "yarn build && yarn start",
     "start": "cross-env NODE_ENV=production node ./build/index.js",
-    "dev": "cross-env NODE_ENV=development node ./scripts/dev.js"
+    "dev": "cross-env NODE_ENV=development node ./scripts/dev.js",
+    "lint": "./node_modules/.bin/eslint .",
+    "precommit": "npm run lint -s"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -28,6 +30,7 @@
     "babel-preset-es2015": "^6.24.1",
     "cross-env": "^5.0.5",
     "eslint": "^4.5.0",
+    "husky": "^0.14.3",
     "nodemon": "^1.11.0"
   }
 }
