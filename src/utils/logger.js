@@ -1,11 +1,10 @@
 import winston from 'winston';
+import config from 'config';
 // import dateformat from 'dateformat';
 
 winston.emitErrs = true;
 
 // winston default log level { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
-const logLevel = process.env.LOGLEVEL || 'debug';
-
 const logger = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({
@@ -14,7 +13,7 @@ const logger = new (winston.Logger)({
       // timestamp: () => { return dateformat(new Date(), 'isoUtcDateTime') },
       // => 2007-06-09T22:46:21Z
       timestamp: true, // => 2017-04-21T05:12:23.169Z
-      level: logLevel,
+      level: config.get('logLevel'),
       handleExceptions: true,
       colorize: true,
       prettyPrint: true,
@@ -24,7 +23,7 @@ const logger = new (winston.Logger)({
 });
 
 module.exports = logger;
-module.exports.logLevel = logLevel;
+module.exports.logLevel = config.get('logLevel');
 module.exports.stream = {
   write: (message) => {
     logger.info(message.slice(0, -1));

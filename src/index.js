@@ -2,10 +2,10 @@ import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import config from 'config';
 
 import logger from './utils/logger';
 import routes from './routes';
-import config from './config';
 
 const app = express();
 
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(cors(corsOptions));
 }
 
-app.set('port', config.port);
+app.set('port', config.get('port'));
 app.use(morgan('tiny', { stream: logger.stream }));
 
 app.use(bodyParser.json());
