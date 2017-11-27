@@ -9,6 +9,6 @@
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "no-underscore-dangle": ["off"],
-    "camelcase": ["off"],
+    "camelcase": ["off"]
   }
 }
