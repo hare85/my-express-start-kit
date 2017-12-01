@@ -6,9 +6,7 @@ async function batchUsers(Users, keys) {
 }
 
 module.exports = ({ Users }) => ({
-  userLoader: new DataLoader(
-    keys => batchUsers(Users, keys),
-    { cacheKeyFn: key => key.toString() }
-  ),
+  userLoader: new DataLoader(keys => batchUsers(Users, keys), {
+    cacheKeyFn: key => key.toString(),
+  }),
 });
-

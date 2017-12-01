@@ -7,7 +7,7 @@ module.exports = async () => {
   let logCount = 0;
   Logger.setCurrentLogger((msg) => {
     logCount += 1;
-    console.log(`MONGO DB REQUEST ${logCount}: ${msg}`);
+    console.log(`MONGO DB REQUEST ${logCount}: ${msg}`); // eslint-disable-line no-console
   });
   Logger.setLevel('debug');
   Logger.filter('class', ['Cursor']);
